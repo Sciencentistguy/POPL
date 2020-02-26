@@ -73,3 +73,30 @@ fact_adjacent(wa, pa).
 fact_adjacent(ws, tc).
 
 adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
+
+/*-------------------*/
+/*    Question 4     */
+/*-------------------*/
+% This function gets the lists of lines that station1 and station2 are on
+% It returns the element that is in both lists.
+% If there is no element, it will return false.
+ sameline(Station1, Station2, Line) :- 
+     station(Station1, Line1),
+     station(Station2, Line2),
+     member(Line, Line1),
+     member(Line, Line2).
+
+/*-------------------*/
+/*     Testcases     */
+ % Bakerloo:
+ % sameline(wa, pa, List).
+ % sameline(oc, em, List).
+
+ % Central:
+ % sameline(nh, lg, List).
+ % sameline(tc, cl, List).
+
+ % False:
+ % sameline(nh, wa, List).
+ % sameline(nh, ws, List).
+/*-------------------*/
