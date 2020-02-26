@@ -1,9 +1,8 @@
 /**/
 
-/* --------------------
-   Question 1
-   ------------------*/
-
+/*-------------------*/
+/*    Question 1     */
+/*-------------------*/
 station(al, [metropolitan]).
 station(bg, [central]).
 station(br, [victoria]).
