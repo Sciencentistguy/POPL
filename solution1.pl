@@ -44,3 +44,32 @@ station_exists(Station) :- station(Station, _).
 % station_exists(helloworld).
 % station_exists(wat).
 /*-------------------*/
+
+/*-------------------*/
+/*    Question 3     */
+/*-------------------*/
+
+fact_adjacent(bs, kx).
+fact_adjacent(cl, ls).
+fact_adjacent(em, ec).
+fact_adjacent(em, ke).
+fact_adjacent(eu, ws).
+fact_adjacent(fp, kx).
+fact_adjacent(fr, bs).
+fact_adjacent(kx, ls).
+fact_adjacent(kx, ws).
+fact_adjacent(lg, oc).
+fact_adjacent(ls, al).
+fact_adjacent(ls, bg).
+fact_adjacent(nh, lg).
+fact_adjacent(oc, em).
+fact_adjacent(oc, tc).
+fact_adjacent(oc, vi).
+fact_adjacent(pa, oc).
+fact_adjacent(tc, cl).
+fact_adjacent(tc, em).
+fact_adjacent(vi, br).
+fact_adjacent(wa, pa).
+fact_adjacent(ws, tc).
+
+adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
