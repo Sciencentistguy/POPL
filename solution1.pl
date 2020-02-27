@@ -99,4 +99,24 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
  % False:
  % sameline(nh, wa, List).
  % sameline(nh, ws, List).
+/*-------------------*/ 
+
 /*-------------------*/
+/*    Question 5     */
+/*-------------------*/
+
+% This function finds all stations where "Line" is a member of the list of lines returned by "station()"
+ line(Line, ListOfStations) :-
+     findall(Station, (station(Station, StatLine), member(Line, StatLine)), ListOfStations).
+
+ /*-------------------*/
+ /*     Testcases     */
+ % ListOfStations = [em, eu, ke, tc, ws].
+ % line(northern, ListOfStations).
+ 
+ % ListOfStations = [al, bs, fr, kx, ls].
+ % line(metropolitan, ListOfStations).
+
+ % ListOfStations = []
+ % line(notALine, ListOfStations).
+ /*-------------------*/
