@@ -120,3 +120,29 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
  % ListOfStations = []
  % line(notALine, ListOfStations).
  /*-------------------*/
+
+/*-------------------*/
+/*    Question 6     */
+/*-------------------*/ 
+
+ % This function gets the list of lines that go through a given station and returns the length of that list.
+ station_numlines(Station, NumberOfLines) :-
+     station(Station, Lines),
+     length(Lines, NumberOfLines).
+/*-------------------*/
+/*     Testcases     */
+% NumberOfLines = 1
+% station_numlines(al, NumberOfLines).
+% station_numlines(pa, NumberOfLines).
+% station_numlines(nh, NumberOfLines).
+
+% NumberOfLines = 2
+% station_numlines(ws, NumberOfLines).
+% station_numlines(kx, NumberOfLines).
+
+% NumberOfLines = 3
+% station_numlines(ws, NumberOfLines).
+
+% NumberOfLines = 0
+% station_numlines(notAStation, NumberOfLines).
+/*-------------------*/
