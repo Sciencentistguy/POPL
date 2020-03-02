@@ -29,20 +29,21 @@ station(ws, [victoria, northern]).
 /*    Question 2     */
 /*-------------------*/
 % Returns true if the station exists, false otherwise.
-station_exists(Station) :- station(Station, _).
+ station_exists(Station) :-
+     station(Station, _).
 /*-------------------*/
 /*     Testcases     */
 % True:
-% station_exists(wa).
-% station_exists(vi).
-% station_exists(ws).
-% station_exists(al).
+%station_exists(wa).
+%station_exists(vi).
+%station_exists(ws).
+%station_exists(al).
 
 %False:
-% station_exists(a).
-% station_exists(thisstationdoesnotexist).
-% station_exists(helloworld).
-% station_exists(wat).
+%station_exists(a).
+%station_exists(thisstationdoesnotexist).
+%station_exists(helloworld).
+%station_exists(wat).
 /*-------------------*/
 
 /*-------------------*/
@@ -88,17 +89,17 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
 
 /*-------------------*/
 /*     Testcases     */
- % Bakerloo:
- % sameline(wa, pa, List).
- % sameline(oc, em, List).
+% Bakerloo:
+%sameline(wa, pa, List).
+%sameline(oc, em, List).
 
- % Central:
- % sameline(nh, lg, List).
- % sameline(tc, cl, List).
+% Central:
+%sameline(nh, lg, List).
+%sameline(tc, cl, List).
 
- % False:
- % sameline(nh, wa, List).
- % sameline(nh, ws, List).
+% False:
+%sameline(nh, wa, List).
+%sameline(nh, ws, List).
 /*-------------------*/ 
 
 /*-------------------*/
@@ -109,17 +110,17 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
  line(Line, ListOfStations) :-
      findall(Station, (station(Station, StatLine), member(Line, StatLine)), ListOfStations).
 
- /*-------------------*/
- /*     Testcases     */
- % ListOfStations = [em, eu, ke, tc, ws].
- % line(northern, ListOfStations).
+/*-------------------*/
+/*     Testcases     */
+% ListOfStations = [em, eu, ke, tc, ws].
+%line(northern, ListOfStations).
  
- % ListOfStations = [al, bs, fr, kx, ls].
- % line(metropolitan, ListOfStations).
+% ListOfStations = [al, bs, fr, kx, ls].
+%line(metropolitan, ListOfStations).
 
- % ListOfStations = []
- % line(notALine, ListOfStations).
- /*-------------------*/
+% ListOfStations = []
+%line(notALine, ListOfStations).
+/*-------------------*/
 
 /*-------------------*/
 /*    Question 6     */
@@ -132,19 +133,19 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
 /*-------------------*/
 /*     Testcases     */
 % NumberOfLines = 1
-% station_numlines(al, NumberOfLines).
-% station_numlines(pa, NumberOfLines).
-% station_numlines(nh, NumberOfLines).
+%station_numlines(al, NumberOfLines).
+%station_numlines(pa, NumberOfLines).
+%station_numlines(nh, NumberOfLines).
 
 % NumberOfLines = 2
-% station_numlines(ws, NumberOfLines).
-% station_numlines(kx, NumberOfLines).
+%station_numlines(ws, NumberOfLines).
+%station_numlines(kx, NumberOfLines).
 
 % NumberOfLines = 3
-% station_numlines(ws, NumberOfLines).
+%station_numlines(ws, NumberOfLines).
 
 % NumberOfLines = 0
-% station_numlines(notAStation, NumberOfLines).
+%station_numlines(notAStation, NumberOfLines).
 /*-------------------*/ 
 
 /*-------------------*/
@@ -153,14 +154,14 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
 % This function first gets the list of lines that the non interchange station is on, and checks that it is only one line.
 % It then gets the list of lines of the interchange station and ensures that it is on more than one (this makes it an interchange).
 % It then checks that the two stations are adjacent.
-  adjacent2interchange(NonInterchangeStation, InterchangeStation) :-
-      station(NonInterchangeStation, NonInterLines),
-      length(NonInterLines, NonInterLinesLength),
-      NonInterLinesLength == 1,
-      station(InterchangeStation, InterLines),
-      length(InterLines, InterLinesLength),
-      InterLinesLength > 1,
-      adjacent(NonInterchangeStation, InterchangeStation).
+ adjacent2interchange(NonInterchangeStation, InterchangeStation) :-
+     station(NonInterchangeStation, NonInterLines),
+     length(NonInterLines, NonInterLinesLength),
+     NonInterLinesLength == 1,
+     station(InterchangeStation, InterLines),
+     length(InterLines, InterLinesLength),
+     InterLinesLength > 1,
+     adjacent(NonInterchangeStation, InterchangeStation).
 /*-------------------*/
 /*     Testcases     */
  % False.
