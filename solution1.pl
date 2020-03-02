@@ -145,4 +145,29 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
 
 % NumberOfLines = 0
 % station_numlines(notAStation, NumberOfLines).
+/*-------------------*/ 
+
 /*-------------------*/
+/*    Question 7     */
+/*-------------------*/ 
+% This function first gets the list of lines that the non interchange station is on, and checks that it is only one line.
+% It then gets the list of lines of the interchange station and ensures that it is on more than one (this makes it an interchange).
+% It then checks that the two stations are adjacent.
+  adjacent2interchange(NonInterchangeStation, InterchangeStation) :-
+      station(NonInterchangeStation, NonInterLines),
+      length(NonInterLines, NonInterLinesLength),
+      NonInterLinesLength == 1,
+      station(InterchangeStation, InterLines),
+      length(InterLines, InterLinesLength),
+      InterLinesLength > 1,
+      adjacent(NonInterchangeStation, InterchangeStation).
+/*-------------------*/
+/*     Testcases     */
+ % False.
+%adjacent2interchange(oc, InterchangeStation).
+%adjacent2interchange(thisstationdoesnotexist, InterchangeStation).
+
+% InterchangeStation = tc; InterchangeStation = ls.
+%adjacent2interchange(cl, InterchangeStation).
+/*-------------------*/ 
+
