@@ -172,3 +172,32 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
 %adjacent2interchange(cl, InterchangeStation).
 /*-------------------*/ 
 
+/*-------------------*/
+/*    Question 8     */
+/*-------------------*/  
+% This function calculates the route from From to To.
+ route(From, To, Route) :-
+     calculate_route(From, To, [], Route_out),
+     reverse([To | Route_out], Route).
+
+% Base case
+ calculate_route(From, To, StoreRoute, Route) :-
+     \+member(From, StoreRoute),
+     adjacent(From, To),
+     Route = [From| StoreRoute].
+
+% Recursive case
+ calculate_route(From, To, StoreRoute, Route) :-
+     Next \== To,
+     adjacent(From, Next),
+     \+member(From, StoreRoute),
+     calculate_route(Next, To, [From | StoreRoute], Route).
+
+/*-------------------*/
+/*     Testcases     */
+% False
+%route(tc, thisstationdoesnotexist, Route).
+
+% Route = [tc, ws, kx, ls, cl].
+%route(tc, cl, Route).
+/*-------------------*/
