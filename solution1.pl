@@ -206,15 +206,15 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
 /*    Question 9     */
 /*-------------------*/ 
 
-  % This function calculates how long it takes to get from one station to another. First it calculates a route between the two stations.
-  % It then gets the length of that route, subtracts one, and multiplies by 4, to return the answer.
-  % It does this for all routes
-  route_times(From, To, Route, Minutes) :-
-      route(From, To, Route),
-      length(Route, TimeTaken),
-      Minutes is (TimeTaken - 1) * 4. 
- /*-------------------*/
- /*     Testcases     */
+% This function calculates how long it takes to get from one station to another. First it calculates a route between the two stations.
+% It then gets the length of that route, subtracts one, and multiplies by 4, to return the answer.
+% It does this for all routes
+ route_times(From, To, Route, Minutes) :-
+     route(From, To, Route),
+     length(Route, TimeTaken),
+     Minutes is (TimeTaken - 1) * 4. 
+/*-------------------*/
+/*     Testcases     */
 % False.
 %route_times(ec, thisstationdoesnotexist, Route, Minutes).
 
@@ -223,4 +223,4 @@ adjacent(X,Y) :- fact_adjacent(X, Y); fact_adjacent(Y, X).
 % Route = [fr, bs, kx, ls, cl, tc, em, oc],
 % Minutes = 28 ;
 %route_times(fr, oc, Route, Minutes).
- /*-------------------*/
+/*-------------------*/
