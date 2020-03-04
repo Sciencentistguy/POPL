@@ -1,4 +1,5 @@
 ;#lang racket
+(define game-machine-number 10)
 
 (define (a-game number)
     (if (and (>= number 2) (<= number 30))
