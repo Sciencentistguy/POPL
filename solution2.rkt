@@ -39,10 +39,18 @@
             )
         )
     )
+    (define (increasemoney)
+        (display "Your old balance was £")
+        (display number)
+        (set! number (+ number 1))
+        (display ".\n Your new balance is £")
+        (display number)
+        (display ".\n")
+    )
     (define (the-game-number request)
         (cond
             [(equal? request 'randomnum) randomnum]
-            [(equal? request 'increasemoney) (display "increasemoney")]
+            [(equal? request 'increasemoney) increasemoney]
             [(equal? request 'decreasemoney) decreasemoney]
             [(equal? request 'topup) topup]
             [else (error "Invalid request")]
