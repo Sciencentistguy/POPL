@@ -24,12 +24,27 @@
             (display "You can keep playing!")
         )
     )
+    (define (topup t)
+        (if (<= (+ number t) 30)
+            (begin
+              (display "You have topped up by £")
+              (display t)
+              (set! number (+ number t))
+              (display ".\nYour new balance is £")
+              (display number)
+              (display ".\n")
+            )
+            (begin
+                (display "That is an invalid amount to top up by")
+            )
+        )
+    )
     (define (the-game-number request)
         (cond
-            [(equal? request 'randomnum) randomnum ]
-            [(equal? request 'increasemoney) (display "increasemoney") ]
-            [(equal? request 'decreasemoney) decreasemoney ]
-            [(equal? request 'topup) (display "topup") ]
+            [(equal? request 'randomnum) randomnum]
+            [(equal? request 'increasemoney) (display "increasemoney")]
+            [(equal? request 'decreasemoney) decreasemoney]
+            [(equal? request 'topup) topup]
             [else (error "Invalid request")]
         )
     )
