@@ -14,6 +14,15 @@
     )
 )
 
+(define (game_machine_increment)
+    (display "Game Machine. Your old balance was £")
+    (display number)
+    (set! number (+ number 1))
+    (display ".\n Your new balance is £")
+    (display number)
+    (display ".\n")
+)
+
 (define (a-game number)
     (if (and (>= number 2) (<= number 30))
         (display "Please run the randomnum function\n")
