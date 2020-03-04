@@ -1,6 +1,19 @@
 ;#lang racket
 (define game-machine-number 10)
 
+(define (game_machine_decrement)
+    (display "Previous game machine balance: £")
+    (display game-machine-number)
+    (set! game-machine-number (- game-machine-number 2))
+    (display ".\nNew balance: £")
+    (display game-machine-number)
+    (display ".\n")
+    (if (<= game-machine-number 2)
+        (display "You haven't got enough money. You need to top-up.")
+        (display "You can keep playing!")
+    )
+)
+
 (define (a-game number)
     (if (and (>= number 2) (<= number 30))
         (display "Please run the randomnum function\n")
